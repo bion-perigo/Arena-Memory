@@ -7,7 +7,7 @@ I am a beginner in ANSI C and this code has not been properly tested or optimize
 Marcio Freitas => https://www.youtube.com/@gamedevlog  
 For making this series that has helped me a lot in my learning.  
 
-v-bog => https://github.com/nihguy  
+v-borg => https://github.com/nihguy  
 My "samurai" master who always helps me with everything programming.  
 
 
