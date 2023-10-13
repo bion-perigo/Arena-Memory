@@ -38,14 +38,18 @@ struct handle_f{
 	int version;
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*==================== Game Platform ====================*/
 
 // Memory Manager
 char *get_memory_p(size_t size);
 char *resize_memory_p(char *data, size_t old_size, size_t new_size);
 bool free_memory_p(char *data);
-char *copy_memory_p(char* destiny, char* source, size_t move_size);
-char *move_memory_p(char* destiny, char* source, size_t move_size);
+char *copy_memory_p(char *destiny, char *source, size_t move_size);
+char *move_memory_p(char *destiny, char *source, size_t move_size);
 
 /*==================== Game Framework ====================*/
 
@@ -56,10 +60,14 @@ void reset_arena_f(struct arena_f *arena);
 
 // Handle
 struct handle_list_f init_handle_list_f(size_t type_size, int initial_size);
-void set_safe_object_handle_list_f(struct handle_list_f *handle_list, void* item);
-struct handle_f add_handle_list_f(struct handle_list_f *handle_list, void* item);
+void set_safe_object_handle_list_f(struct handle_list_f *handle_list, void *item);
+struct handle_f add_handle_list_f(struct handle_list_f *handle_list, void *item);
 char *lookup_f(struct handle_list_f *handle_list, struct handle_f handle);
 bool is_valid_handle_f(struct handle_list_f *handle_list, struct handle_f handle);
 bool remove_handle_list_f(struct handle_list_f *handle_list, struct handle_f handle);
 void reset_handle_list_f(struct handle_list_f *handle_list, bool b_resized_arenas, int new_size);
 void free_handle_list_f(struct handle_list_f *handle_list);
+
+#ifdef __cplusplus
+}
+#endif
