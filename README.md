@@ -7,7 +7,7 @@ W64devkit => https://github.com/skeeto/w64devkit
 Also an extension of Visual Studio Code "Makefile Tools".  
 
 # Credits
-Marcio Freitas => https://www.youtube.com/@gamedevlog  
+marciovmf => https://www.youtube.com/@gamedevlog  
 For making this series that has helped me a lot in my learning.  
 
 v-borg => https://github.com/nihguy  
