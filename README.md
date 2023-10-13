@@ -10,7 +10,7 @@ Also an extension of Visual Studio Code "Makefile Tools".
 marciovmf => https://www.youtube.com/@gamedevlog  
 For making this series that has helped me a lot in my learning.  
 
-v-borg => https://github.com/nihguy  
+nihguy => https://github.com/nihguy  
 My "samurai" master who always helps me with everything programming.  
 
 
