@@ -12,6 +12,12 @@ struct handle_list_f init_handle_list_f(size_t type_size, int initial_size){
     return handle_list;
 }
 
+struct handle_list_f init_handle_list_safe_f(size_t type_size, int initial_size, void* safe_object){
+    struct handle_list_f list = init_handle_list_f(type_size, initial_size);
+    set_safe_object_handle_list_f(&list, safe_object);
+    return list;
+}
+
 void set_safe_object_handle_list_f(struct handle_list_f *handle_list, void* item){
     handle_list->safe_object = (char*)malloc(handle_list->resources.type_size);
     copy_memory_p(handle_list->safe_object, (char*)item, handle_list->resources.type_size);
@@ -51,7 +57,7 @@ char *lookup_f(struct handle_list_f *handle_list, struct handle_f handle){
 
     if(handle.index >= handle_list->slot_count){
         printf("LOOKUP: Index not found => Handle Index:%d, Slot Count:%d\n", handle.index, handle_list->slot_count);
-        if(handle_list->safe_object == NULL) printf("LOOKUP FATAL:%s, for index:%d\n", ret_val, handle.index);
+        if(handle_list->safe_object == NULL) printf("LOOKUP FATAL: %s, for index:%d\n", ret_val, handle.index);
         return handle_list->safe_object;
     }
     
@@ -125,6 +131,7 @@ void reset_handle_list_f(struct handle_list_f *handle_list, bool b_resized_arena
     }
     reset_arena_f(&handle_list->slots);
     reset_arena_f(&handle_list->resources);
+    printf("HANDLE LIST: Reset list\n");
 }
 
 void free_handle_list_f(struct handle_list_f *handle_list){
@@ -138,4 +145,5 @@ void free_handle_list_f(struct handle_list_f *handle_list){
     handle_list->slots.data = NULL;
     handle_list->resources.data = NULL;
     handle_list->safe_object = NULL;
+    printf("HANDLE LIST: Free list\n");
 }

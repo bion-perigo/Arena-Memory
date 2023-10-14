@@ -13,8 +13,6 @@ struct texture{
 int main(){
   printf("Texture type: Size:%llu Total:%llu\n", sizeof(struct texture), TEXTURE_LIST_SIZE * sizeof(struct texture));
 
-  struct handle_list_f  texture_list = init_handle_list_f(sizeof(struct texture), TEXTURE_LIST_SIZE);
-
   struct texture new_texture_safe_objet;
   new_texture_safe_objet.id = -1;
   new_texture_safe_objet.width = 128;
@@ -22,7 +20,10 @@ int main(){
   new_texture_safe_objet.format = 32;
   new_texture_safe_objet.mipmap = 1;
 
-  set_safe_object_handle_list_f(&texture_list, &new_texture_safe_objet);
+  //struct handle_list_f  texture_list = init_handle_list_f(sizeof(struct texture), TEXTURE_LIST_SIZE);
+  //set_safe_object_handle_list_f(&texture_list, &new_texture_safe_objet);
+
+  struct handle_list_f  texture_list = init_handle_list_safe_f(sizeof(struct texture), TEXTURE_LIST_SIZE, &new_texture_safe_objet);
 
   struct texture new_texture_player;
   new_texture_player.id = 00;

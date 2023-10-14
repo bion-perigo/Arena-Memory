@@ -60,6 +60,7 @@ void reset_arena_f(struct arena_f *arena);
 
 // Handle
 struct handle_list_f init_handle_list_f(size_t type_size, int initial_size);
+struct handle_list_f init_handle_list_safe_f(size_t type_size, int initial_size, void* safe_object);
 void set_safe_object_handle_list_f(struct handle_list_f *handle_list, void *item);
 struct handle_f add_handle_list_f(struct handle_list_f *handle_list, void *item);
 char *lookup_f(struct handle_list_f *handle_list, struct handle_f handle);
